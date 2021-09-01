@@ -30,6 +30,7 @@ namespace FahrzeugProgramm
 
                 static void Main(string[] args)
                 {
+                    jsonPfadSpeicherInitialisierung();
                     //aufrufen der Methode jsonPfadInitialisierung
                     jsonPfadInitialisierung();
                     //aufrufen der Methode jsonPfadEingabe
@@ -37,22 +38,9 @@ namespace FahrzeugProgramm
                     //aufrufen einer while-Schleife
                     while (programmStopp != "Stopp")
                     {
-                        //prüfen ob der vorher deklarierte und initialiserte Pfad existiert und falls Daten vorhanden sind, auslesen dieser und
-                        //hinzufügen zur Liste aller Fahrzeuge
-                        if (listeÜbernehmen == 0)
-                        {
-                            if (File.Exists(jsonPfad))
-                            {
-                                string json;
-                                json = File.ReadAllText(jsonPfad);
-                                List<List<string>> fahrzeugeGeladen = new List<List<string>>();
-                                fahrzeugeGeladen = JsonConvert.DeserializeObject<List<List<string>>>(json);
-                                for (int x = 0; x < fahrzeugeGeladen.Count; x++)
-                                {
-                                    alleFahrzeuge.Add(fahrzeugeGeladen[x]);
-                                }
-                            }
-                        }
+                        //Aufrufen der Methode übernahmeListe
+                        übernahmeListe();
+                        
                         //damit bei jedem Ablauf des Programms der Schritt des auslesens nicht wiederholt wird, erhöhen der Variable um 1
                         listeÜbernehmen++;
                         Console.Clear();
@@ -146,6 +134,31 @@ namespace FahrzeugProgramm
                 }
 
 
+                static void jsonPfadSpeicherInitialisierung()
+                {
+                    Console.WriteLine("Eingabe Speicherpfad");
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.WriteLine("\nGeben Sie den Pfad ein, wo der Pfadspeicher gespeichert werden soll.");
+                    Console.WriteLine("Die Eingabe sollte in Folgendem Format erfolgen:");
+                    Console.WriteLine("N:\\Ausbildung\\Yannik Köllmann\\Fahrzeugprogramm Json");
+                    Console.WriteLine("________________________________________________________________________________________________________________________");
+                    Console.Write("\nIhre Eingabe: ");
+                    //Deklaration der Variablen jsonPfad
+                    jsonPfadSpeicher = Console.ReadLine();
+                    //Entfernen des letzten Zeichens von dem String jsonPfad
+                    jsonPfadSpeicher.Substring(0, jsonPfadSpeicher.Length - 1);
+                    //initialisieren der Variablen jsonPfad um damit weiter arbeiten zu können
+                    jsonPfadSpeicher = @$"{jsonPfadSpeicher}\Pfad.txt";
+                    //Deklarieren und Initialisieren der Variablen json
+                    string json;
+                    json = jsonPfadSpeicher;
+                    //Ersetzen des bestehenden Pfades mit neuem json String
+                    File.WriteAllText(jsonPfadSpeicher, jsonPfadSpeicher);
+                    jsonPfadEingabe();
+                }
+
+
+
                 static void jsonPfadInitialisierung()
                 {
                     //Auslesen einer Textdatei
@@ -155,6 +168,7 @@ namespace FahrzeugProgramm
 
                 static void jsonPfadEingabeAuswahl()
                 {
+                    Console.Clear();
                     //Ausgaben in der Konsole
                     Console.WriteLine("Pfadauswahl");
                     Console.WriteLine("________________________________________________________________________________________________________________________");
@@ -291,7 +305,25 @@ namespace FahrzeugProgramm
                     File.WriteAllText(jsonPfadSpeicher, json);
                 }
 
-
+                static void übernahmeListe()
+                {
+                    //prüfen ob der vorher deklarierte und initialiserte Pfad existiert und falls Daten vorhanden sind, auslesen dieser und
+                    //hinzufügen zur Liste aller Fahrzeuge
+                    if (listeÜbernehmen == 0)
+                    {
+                        if (File.Exists(jsonPfad))
+                        {
+                            string json;
+                            json = File.ReadAllText(jsonPfad);
+                            List<List<string>> fahrzeugeGeladen = new List<List<string>>();
+                            fahrzeugeGeladen = JsonConvert.DeserializeObject<List<List<string>>>(json);
+                            for (int x = 0; x < fahrzeugeGeladen.Count; x++)
+                            {
+                                alleFahrzeuge.Add(fahrzeugeGeladen[x]);
+                            }
+                        }
+                    }
+                }
                 static void MenüAusgabe()
                 {
                     //Ausgaben in der Konsole
