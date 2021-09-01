@@ -136,25 +136,28 @@ namespace FahrzeugProgramm
 
                 static void jsonPfadSpeicherInitialisierung()
                 {
-                    Console.WriteLine("Eingabe Speicherpfad");
-                    Console.WriteLine("________________________________________________________________________________________________________________________");
-                    Console.WriteLine("\nGeben Sie den Pfad ein, wo der Pfadspeicher gespeichert werden soll.");
-                    Console.WriteLine("Die Eingabe sollte in Folgendem Format erfolgen:");
-                    Console.WriteLine("N:\\Ausbildung\\Yannik Köllmann\\Fahrzeugprogramm Json");
-                    Console.WriteLine("________________________________________________________________________________________________________________________");
-                    Console.Write("\nIhre Eingabe: ");
-                    //Deklaration der Variablen jsonPfad
-                    jsonPfadSpeicher = Console.ReadLine();
-                    //Entfernen des letzten Zeichens von dem String jsonPfad
-                    jsonPfadSpeicher.Substring(0, jsonPfadSpeicher.Length - 1);
-                    //initialisieren der Variablen jsonPfad um damit weiter arbeiten zu können
-                    jsonPfadSpeicher = @$"{jsonPfadSpeicher}\Pfad.txt";
-                    //Deklarieren und Initialisieren der Variablen json
-                    string json;
-                    json = jsonPfadSpeicher;
-                    //Ersetzen des bestehenden Pfades mit neuem json String
-                    File.WriteAllText(jsonPfadSpeicher, jsonPfadSpeicher);
-                    jsonPfadEingabe();
+                    if (!File.Exists(@"N:\Ausbildung\Yannik Köllmann\Fahrzeug Pfadspeicher\Pfad.txt"))
+                    {
+                        Console.WriteLine("Eingabe Speicherpfad");
+                        Console.WriteLine("________________________________________________________________________________________________________________________");
+                        Console.WriteLine("\nGeben Sie den Pfad ein, wo der Pfadspeicher gespeichert werden soll.");
+                        Console.WriteLine("Die Eingabe sollte in Folgendem Format erfolgen:");
+                        Console.WriteLine("N:\\Ausbildung\\Yannik Köllmann\\Fahrzeugprogramm Json");
+                        Console.WriteLine("________________________________________________________________________________________________________________________");
+                        Console.Write("\nIhre Eingabe: ");
+                        //Deklaration der Variablen jsonPfad
+                        jsonPfadSpeicher = Console.ReadLine();
+                        //Entfernen des letzten Zeichens von dem String jsonPfad
+                        jsonPfadSpeicher.Substring(0, jsonPfadSpeicher.Length - 1);
+                        //initialisieren der Variablen jsonPfad um damit weiter arbeiten zu können
+                        jsonPfadSpeicher = @$"{jsonPfadSpeicher}\Pfad.txt";
+                        //Deklarieren und Initialisieren der Variablen json
+                        string json;
+                        json = jsonPfadSpeicher;
+                        //Ersetzen des bestehenden Pfades mit neuem json String
+                        File.WriteAllText(jsonPfadSpeicher, jsonPfadSpeicher);
+                        jsonPfadEingabe();
+                    }
                 }
 
 
