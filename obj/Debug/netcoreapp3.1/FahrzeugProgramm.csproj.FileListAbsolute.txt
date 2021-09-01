@@ -1,0 +1,15 @@
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\bin\Debug\netcoreapp3.1\FahrzeugProgramm.exe
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\bin\Debug\netcoreapp3.1\FahrzeugProgramm.deps.json
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\bin\Debug\netcoreapp3.1\FahrzeugProgramm.runtimeconfig.json
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\bin\Debug\netcoreapp3.1\FahrzeugProgramm.runtimeconfig.dev.json
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\bin\Debug\netcoreapp3.1\FahrzeugProgramm.dll
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\bin\Debug\netcoreapp3.1\FahrzeugProgramm.pdb
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\obj\Debug\netcoreapp3.1\FahrzeugProgramm.csproj.AssemblyReference.cache
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\obj\Debug\netcoreapp3.1\FahrzeugProgramm.AssemblyInfoInputs.cache
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\obj\Debug\netcoreapp3.1\FahrzeugProgramm.AssemblyInfo.cs
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\obj\Debug\netcoreapp3.1\FahrzeugProgramm.csproj.CoreCompileInputs.cache
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\obj\Debug\netcoreapp3.1\FahrzeugProgramm.dll
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\obj\Debug\netcoreapp3.1\FahrzeugProgramm.pdb
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\obj\Debug\netcoreapp3.1\FahrzeugProgramm.genruntimeconfig.cache
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\obj\Debug\netcoreapp3.1\FahrzeugProgramm.csproj.CopyComplete
+C:\Users\koellman\source\repos\FahrzeugProgramm\FahrzeugProgramm\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
