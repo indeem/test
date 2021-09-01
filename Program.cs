@@ -12,6 +12,7 @@ namespace FahrzeugProgramm
         static string jsonPfad;
         static int listeÜbernehmen = 0;
         static List<List<string>> alleFahrzeuge = new List<List<string>>();
+        static int test;
 
         public class FahrzeugeProgramm
         {
