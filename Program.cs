@@ -184,20 +184,15 @@ namespace FahrzeugProgramm
                     Console.Write("\nIhre Eingabe: ");
                     //Deklarieren und Initialisieren der Variablen eingabe
                     string eingabe = Console.ReadLine();
-                    //Prüfen was für eingabe eingegeben wurde 
-                    if (eingabe == "ja")
+                    //Prüfen was für eingabe eingegeben wurde
+                    switch (eingabe)
                     {
-
-                    }
-                    else
-                    {
-                        if (eingabe == "nein")
-                        {
-                            //Aufrufen der Methode jsonPfadEingabe
+                        case "ja":
+                            break;
+                        case "nein":
                             jsonPfadEingabe();
-                        }
-                        else
-                        {
+                            break;
+                        default:
                             //Ausgaben in der Konsole
                             Console.WriteLine("________________________________________________________________________________________________________________________");
                             Console.WriteLine("\nSie müssen ja oder nein eingeben.");
@@ -205,7 +200,7 @@ namespace FahrzeugProgramm
                             Console.ReadLine();
                             Console.Clear();
                             //Aufrufen einer while-Schleife
-                            while (eingabe != "ja" || eingabe != "nein")
+                            while (eingabe != "ja" && eingabe != "nein")
                             {
                                 //das gleiche wie vorher
                                 Console.WriteLine("Pfadauswahl");
@@ -218,29 +213,26 @@ namespace FahrzeugProgramm
                                 Console.WriteLine("________________________________________________________________________________________________________________________");
                                 Console.Write("\nIhre Eingabe: ");
                                 eingabe = Console.ReadLine();
-                                if (eingabe == "ja")
+                                switch (eingabe)
                                 {
-                                    break;
-                                }
-                                else
-                                {
-                                    if (eingabe == "nein")
-                                    {
+                                    case "ja":
+                                        break;
+                                    case "nein":
                                         jsonPfadEingabe();
-                                    }
-                                    else
-                                    {
+                                        break;
+                                    default:
                                         Console.WriteLine("________________________________________________________________________________________________________________________");
                                         Console.WriteLine("\nSie müssen ja oder nein eingeben.");
-                                        Console.WriteLine("Geben Sie Enter ein um es nochmal zu probieren");
+                                        Console.WriteLine("Geben Sie Enter ein um es nochmal zu probieren sss");
                                         Console.ReadLine();
                                         Console.Clear();
-                                    }
+                                        break;
                                 }
                             }
-                        }
+                            break;
                     }
                 }
+
 
                 static void jsonPfadEingabe()
                 {
