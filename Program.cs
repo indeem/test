@@ -856,6 +856,7 @@ namespace FahrzeugProgramm
 
                 static int prüfenAufGanzzahl()
                 {
+                    /*
                     //Deklarieren und Initialisieren der Variablen eingabeAuswahlEingabe, eingabeAuswahl und erfolg
                     string eingabeAuswahlEingabe = Console.ReadLine();
                     int eingabeAuswahl;
@@ -1011,7 +1012,7 @@ namespace FahrzeugProgramm
                                                         }
                                                         break;
                                                 }
-                                                /*
+                                                
                                                 if (Menüs == 1)
                                                 {
                                                     MenüAusgabe();
@@ -1045,37 +1046,174 @@ namespace FahrzeugProgramm
                                                     }
                                                 }
                                                 */
-                                                //Ausgaben in der Konsole
-                                                Console.WriteLine("\nVersuchen Sie es nochmal.");
-                                                Console.WriteLine("________________________________________________________________________________________________________________________");
-                                                Console.WriteLine();
-                                                Console.Write("Ihre Eingabe: ");
-                                                //initialisieren der Variablen eingabeAuswahlEingabe
-                                                eingabeAuswahlEingabe = Console.ReadLine();
-                                                //Prüfen ob eingabeAuswahlEingabe zurück ist
-                                                if (eingabeAuswahlEingabe == "zurück")
+
+
+                                                //Deklarieren und Initialisieren der Variablen eingabeAuswahlEingabe, eingabeAuswahl und erfolg
+                                                string eingabeAuswahlEingabe = Console.ReadLine();
+                                                int eingabeAuswahl;
+                                                //Überprüfen, ob eingabeAuswahlEingabe in einen Integer konvertiert werden kann
+                                                bool erfolg = int.TryParse(eingabeAuswahlEingabe, out eingabeAuswahl);
+                                                //Überprüfen ob für eingabeAuswahlEingabe nichts eingegeben wurde und initialisieren der Variablen eingabeZurück
+                                                switch (eingabeAuswahlEingabe)
                                                 {
-                                                    //initialisieren der Variablen eingabeAuswahl und eingabeZurück
-                                                    eingabeAuswahl = -1;
-                                                    eingabeZurück = -1;
-                                                    break;
-                                                }
-                                                else
-                                                {
-                                                    //Prüfen ob eingabeAuswahlEingabe weiter ist
-                                                    if (eingabeAuswahlEingabe == "weiter")
-                                                    {
-                                                        //initialisieren der Variablen eingabeZurück
+                                                    case "":
                                                         eingabeZurück = -2;
                                                         break;
-                                                    }
-                                                    else
-                                                    {
-                                                        //initialisieren der Variablen erfolg mit der Überprüfung ob eingabeAuswahlEingabe konvertierbar zu
-                                                        //einem Integer ist
-                                                        erfolg = int.TryParse(eingabeAuswahlEingabe, out eingabeAuswahl);
-                                                    }
+                                                    default:
+                                                        switch (Auswahl)
+                                                        {
+                                                            case 0:
+                                                                switch (eingabeAuswahlEingabe)
+                                                                {
+                                                                    case "Stopp":
+                                                                        programmStopp = "Stopp";
+                                                                        break;
+                                                                    case "zurück":
+                                                                        eingabeAuswahl = -1;
+                                                                        break;
+                                                                    case "weiter":
+                                                                        eingabeZurück = -2;
+                                                                        break;
+                                                                    default:
+                                                                        while (erfolg == false || eingabeAuswahl > 3 || eingabeAuswahl <= 0)
+                                                                        {
+                                                                            //Ausgaben in der Konsole
+                                                                            Console.WriteLine();
+                                                                            Console.WriteLine("Es muss eine ganze Zahl eingegeben werden, welche im Bereich der möglichen Auswahl liegt.");
+                                                                            Console.WriteLine("Drücken Sie Enter um es nochmal zu probieren.");
+                                                                            Console.ReadLine();
+                                                                            Console.Clear();
+
+                                                                            switch (Menüs)
+                                                                            {
+                                                                                case 1:
+                                                                                    MenüAusgabe();
+                                                                                    break;
+                                                                                case 2:
+                                                                                    FahrzeugMenü();
+                                                                                    break;
+                                                                                case 3:
+                                                                                    fahrzeugAusgabe();
+                                                                                    break;
+                                                                            }
+                                                                            //Ausgaben in der Konsole
+                                                                            Console.WriteLine("\nWelchen Punkt wollen Sie öffnen? Geben Sie die jeweilige Zahl ein.");
+                                                                            Console.WriteLine();
+                                                                            Console.WriteLine();
+                                                                            Console.Write("Ihre Eingabe: ");
+                                                                            //Initialisieren der Variablen eingabeAuswahlEingabe und erfolg mti Überprüfung ob das Konvertieren der
+                                                                            //Variablen eingabeAuswahlEingabe zum Integer möglich ist
+                                                                            eingabeAuswahlEingabe = Console.ReadLine();
+                                                                            erfolg = int.TryParse(eingabeAuswahlEingabe, out eingabeAuswahl);
+                                                                            //Prüfen ob die eingabeAuswahlEingabe zurück ist
+                                                                            if (eingabeAuswahlEingabe == "zurück")
+                                                                            {
+                                                                                //initialisieren der Variablen eingabeAuswahl und erfolg
+                                                                                eingabeAuswahl = -1;
+                                                                                erfolg = true;
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                //Prüfen ob eingabeAuswahlEingabe = weiter ist
+                                                                                if (eingabeAuswahlEingabe == "weiter")
+                                                                                {
+                                                                                    //initialisieren der Variablen eingabeAuswahl und erfolg
+                                                                                    eingabeAuswahl = -2;
+                                                                                    erfolg = true;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        break;
+                                                                }
+                                                                break;
+                                                            default:
+                                                                switch (eingabeAuswahlEingabe)
+                                                                {
+                                                                    case "Stopp":
+                                                                        programmStopp = "Stopp";
+                                                                        break;
+                                                                    case "zurück":
+                                                                        eingabeAuswahl = -1;
+                                                                        break;
+                                                                    case "weiter":
+                                                                        eingabeZurück = -2;
+                                                                        break;
+                                                                    default:
+                                                                        if (Auswahl == 5)
+                                                                        {
+                                                                            //Aufrufen einer while-Schleife
+                                                                            while (erfolg == false)
+                                                                            {
+                                                                                //Ausgaben in der Konsole
+                                                                                Console.WriteLine("________________________________________________________________________________________________________________________");
+                                                                                Console.WriteLine();
+                                                                                Console.WriteLine("Ungültige Eingabe.");
+                                                                                Console.WriteLine("Drücken Sie Enter um es nochmal zu probieren.");
+                                                                                Console.ReadLine();
+                                                                                Console.Clear();
+                                                                                //switch-case-Anweisung zur Ausgabe von Dingen in der Konsole
+                                                                                switch (Menüs)
+                                                                                {
+                                                                                    case 1:
+                                                                                        MenüAusgabe();
+                                                                                        break;
+                                                                                    case 2:
+                                                                                        FahrzeugMenü();
+                                                                                        break;
+                                                                                    case 3:
+                                                                                        fahrzeugAusgabe();
+                                                                                        break;
+                                                                                    case 4:
+                                                                                        if (menüAuswahlEingabe == 7)
+                                                                                        {
+                                                                                            fahrzeugBeliebigAusgabe();
+                                                                                        }
+                                                                                        else
+                                                                                        {
+                                                                                            fahrzeugDefiniertAusgabe();
+                                                                                        }
+                                                                                        break;
+                                                                                }
+                                                                                //Ausgaben in der Konsole
+                                                                                Console.WriteLine("\nVersuchen Sie es nochmal.");
+                                                                                Console.WriteLine("________________________________________________________________________________________________________________________");
+                                                                                Console.WriteLine();
+                                                                                Console.Write("Ihre Eingabe: ");
+                                                                                //initialisieren der Variablen eingabeAuswahlEingabe
+                                                                                eingabeAuswahlEingabe = Console.ReadLine();
+                                                                                //Prüfen ob eingabeAuswahlEingabe zurück ist
+                                                                                if (eingabeAuswahlEingabe == "zurück")
+                                                                                {
+                                                                                    //initialisieren der Variablen eingabeAuswahl und eingabeZurück
+                                                                                    eingabeAuswahl = -1;
+                                                                                    eingabeZurück = -1;
+                                                                                    break;
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    //Prüfen ob eingabeAuswahlEingabe weiter ist
+                                                                                    if (eingabeAuswahlEingabe == "weiter")
+                                                                                    {
+                                                                                        //initialisieren der Variablen eingabeZurück
+                                                                                        eingabeZurück = -2;
+                                                                                        break;
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        //initialisieren der Variablen erfolg mit der Überprüfung ob eingabeAuswahlEingabe konvertierbar zu
+                                                                                        //einem Integer ist
+                                                                                        erfolg = int.TryParse(eingabeAuswahlEingabe, out eingabeAuswahl);
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        break;
+                                                                }
+                                                                break;
+                                                        }
+                                                        break;
                                                 }
+                    /*
                                             }
                                         }
                                     }
@@ -1083,6 +1221,7 @@ namespace FahrzeugProgramm
                             }
                         }
                     }
+                    */
                 //Rückgabe der Variablem eingabeAuswahl
                 return eingabeAuswahl;
                 }
